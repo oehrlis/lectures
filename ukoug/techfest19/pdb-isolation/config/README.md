@@ -6,3 +6,5 @@ This folder contains all files to setup and configure the database. Currently on
 - [scripts](scripts) Various scripts that are not executed automatically.
 - [setup](setup) Setup and configuration scripts executed after the database instance is initially created.
 - [startup](startup) Various startup scripts executed after the database instance is started.
+- [software](software) Various software e.g. patch zip files used in this demo.
+
