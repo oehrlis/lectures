@@ -23,9 +23,10 @@ PDB_NAME="pdbsec"
 PATH_PREFIX="/u01/oradata/PDBSEC/directories"
 EXT_TABLE_PATH="${PATH_PREFIX}/ext_table"
 SCHEDULER_PATH="${PATH_PREFIX}/scheduler"
-PDB_TNSNAME="${PDB_NAME}.$(hostname -d)"
 ORACLE_BASE=${ORACLE_BASE:-"/u00/app/oracle"}
 TNS_ADMIN=${TNS_ADMIN:-"${ORACLE_BASE}/network/admin"}
+PDB_DOMAIN=$(grep -i NAMES.DEFAULT_DOMAIN $TNS_ADMIN/sqlnet.ora|cut -d= -f2)
+PDB_TNSNAME="${PDB_NAME}.${PDB_DOMAIN}"
 # - End of Customization ----------------------------------------------------
 
 # - Environment Variables ---------------------------------------------------

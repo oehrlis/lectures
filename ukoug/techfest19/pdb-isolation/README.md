@@ -26,7 +26,7 @@ Basis for the PDB isolation is the Oracle White Paper [Isolation in Oracle Multi
 
 ## Prepare the Demo Environment (Docker)
 
-### General Preparation
+### General Preparation
 
 Summary of the steps to build the Docker Engineering environment:
 

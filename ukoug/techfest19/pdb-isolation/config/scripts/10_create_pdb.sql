@@ -17,8 +17,32 @@
 --  see git revision history for more information on changes/updates
 ---------------------------------------------------------------------------
 ---------------------------------------------------------------------------
--- alter the SQL*Plus environment
-SET VERIFY ON
+-- default values
+DEFINE def_pdb_admin_user = "pdbadmin"
+DEFINE def_pdb_admin_pwd  = "LAB01schulung"
+DEFINE def_pdb_db_name    = "pdbsec"
+
+-- define a default value for parameter if argument 1,2 or 3 is empty
+SET FEEDBACK OFF
+SET VERIFY OFF
+COLUMN 1 NEW_VALUE 1 NOPRINT
+COLUMN 2 NEW_VALUE 2 NOPRINT
+COLUMN 3 NEW_VALUE 3 NOPRINT
+SELECT '' "1" FROM dual WHERE ROWNUM = 0;
+SELECT '' "2" FROM dual WHERE ROWNUM = 0;
+SELECT '' "3" FROM dual WHERE ROWNUM = 0;
+DEFINE pdb_db_name    = &1 &def_pdb_db_name
+DEFINE pdb_admin_user = &2 &def_pdb_admin_user
+DEFINE pdb_admin_pwd  = &3 &def_pdb_admin_pwd
+COLUMN pdb_db_name NEW_VALUE pdb_db_name NOPRINT
+SELECT upper('&pdb_db_name') pdb_db_name FROM dual;
+-- define environment stuff
+COLUMN directory_name FORMAT a25
+COLUMN directory_path FORMAT a80
+SET PAGESIZE 200 LINESIZE 160
+COLUMN PROPERTY_NAME FORMAT a15
+COLUMN PROPERTY_VALUE FORMAT a32
+COLUMN DESCRIPTION FORMAT a50
 SET FEEDBACK ON
 CLEAR SCREEN
 SET ECHO ON
@@ -41,8 +65,8 @@ ALTER PLUGGABLE DATABASE pdbsec OPEN;
 -- save state of PDB pdbsec
 ALTER PLUGGABLE DATABASE pdbsec SAVE STATE;
 ---------------------------------------------------------------------------
--- connect as PDBADMIN user 
-CONNECT pdbadmin/LAB01schulung@pdbsec
+-- connect to PDB as PDBADMIN
+CONNECT &pdb_admin_user/&pdb_admin_pwd@&pdb_db_name
 ---------------------------------------------------------------------------
 -- create a tablespace USERS
 CREATE TABLESPACE users;
