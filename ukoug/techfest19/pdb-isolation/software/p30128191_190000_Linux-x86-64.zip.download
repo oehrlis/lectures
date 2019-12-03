@@ -1,0 +1,10 @@
+# PDB_OS_CREDENTIAL PARAMETER NOT WORKING FOR DBMS_SCHEDULER (Patch)
+#
+# The following link is a My Oracle Support (http://support.oracle.com) wget download link. You 
+# require a valid MOS Account to download Oracle Software from MOS.
+# Patch Download URL: https://updates.oracle.com/ARULink/PatchDetails/process_form?patch_num=25820082
+# Direct Download   : https://updates.oracle.com/Orion/Services/download/p25820082_195000DBRU_Linux-x86-64.zip?aru=23140147&patch_file=p25820082_195000DBRU_Linux-x86-64.zip
+# 
+# SHA-256                                                        File
+# -------------------------------------------------------------- ---------------------------------
+0BCCE5CD4354FFE41EB3774096EACF8A77941355855A7D0DF12F75B7038AE15C p25820082_195000DBRU_Linux-x86-64.zip
