@@ -1,0 +1,60 @@
+# -----------------------------------------------------------------------
+# Trivadis AG, Business Development & Support (BDS)
+# Saegereistrasse 29, 8152 Glattbrugg, Switzerland
+# -----------------------------------------------------------------------
+# Name.......: docker-compose.yml
+# Author.....: Stefan Oehrli (oes) stefan.oehrli@trivadis.com
+# Editor.....: Stefan Oehrli
+# Date.......: 2019.12.03
+# Revision...: --
+# Purpose....: Simple compose file to create a 19.5 and 12.2 databases
+# Notes......: --
+#
+# Reference..: https://github.com/oehrlis/oudbase
+# License....: GPL-3.0+
+# -----------------------------------------------------------------------
+# Modified...:
+# see git revision history with git log for more information on changes
+# -----------------------------------------------------------------------
+version: '3'
+services:
+
+# multitenant tenant database
+  tvd122:
+    image: oracle/database:12.2.0.1.190416
+    container_name: tvd122
+    hostname: tvd122
+    restart: unless-stopped
+    network_mode: bridge
+    volumes:
+      - ${DOCKER_VOLUME_BASE}/techfest19/tvd122:/u01
+      - ./config:/u01/config
+    ports:
+      - "1521"
+    environment:
+      CONTAINER: 'TRUE'
+      INSTANCE_INIT: /u01/config
+      ORACLE_SID: TTVD122
+      # CUSTOM_RSP: /u01/config/etc
+      # ORADBA_DBC_FILE: dbca12.2.0_custom.dbc.tmpl
+      # ORADBA_RSP_FILE: dbca12.2.0_custom.rsp.tmpl
+
+  tvd190:
+    image: oracle/database:19.5.0.0
+    container_name: tvd190
+    hostname: tvd190
+    restart: unless-stopped
+    network_mode: bridge
+    volumes:
+      - ${DOCKER_VOLUME_BASE}/techfest19/tvd190:/u01
+      - ./config:/u01/config
+    ports:
+      - "1521"
+    environment:
+      CONTAINER: 'TRUE'
+      INSTANCE_INIT: /u01/config
+      ORACLE_SID: TTVD190
+      # CUSTOM_RSP: /u01/config/etc
+      # ORADBA_DBC_FILE: dbca19.0.0_custom.dbc.tmpl
+      # ORADBA_RSP_FILE: dbca19.0.0_custom.rsp.tmpl
+# - EOF -----------------------------------------------------------------
