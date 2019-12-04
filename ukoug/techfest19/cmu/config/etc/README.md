@@ -17,3 +17,9 @@ Example how to export the root certificate on the Active directory server:
 ```bash
 certutil -ca.cert C:\vagrant\ad_root.cer
 ```
+
+Example how to get the `opwdintg.exe` from the Oracle binaries:
+
+```bash
+cp $ORACLE_HOME/bin/opwdintg.exe /u01/config/etc
+```
