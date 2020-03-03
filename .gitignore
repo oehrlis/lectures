@@ -2,6 +2,7 @@
 **/*.rpm
 **/*.jar
 **/*.zip
+**/*.exe
 **/*.tar.gz
 **/*.tgz
 **/*.vagrant
@@ -15,3 +16,4 @@
 /.vscode
 /.vagrant
 **/*.code-workspace
+ukoug/techfest19/cmu/db/etc/opwdintg.exe

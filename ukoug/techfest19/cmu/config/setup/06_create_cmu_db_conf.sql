@@ -5,9 +5,9 @@
 --  Name......: 06_create_cmu_db_conf.sql
 --  Author....: Stefan Oehrli (oes) stefan.oehrli@trivadis.com
 --  Editor....: Stefan Oehrli
---  Date......: 2019.04.04
+--  Date......: 2019.12.04
 --  Revision..:  
---  Purpose...: Script to apply cmu configuration
+--  Purpose...: Script to apply cmu database configuration
 --  Notes.....:  
 --  Reference.: SYS (or grant manually to a DBA)
 --  License...: Licensed under the Universal Permissive License v 1.0 as 
